@@ -20,25 +20,18 @@ const db = getFirestore();
 
 const form = document.querySelector('form');
 
-function addPerson(newPerson) {
-    db.collection('names')
-        .get()
-        .then(snapshot => {
-                db.collection('names')
-                .add(newPerson)
-                .then(() => {
-                    alertPopup('Person Registrert!');
-                });
-        });
-};
-form.addEventListener("submit", e => {
-    e.preventDefault()
-    const docFornavn = document.querySelector('#navn').value;
-    const newPerson = {
-        name: docFornavn,
-    }
-addPerson(newPerson)
+// Add a new document in collection "names"
+let navn = document.getElementById("navn").value;
+db.collection("names").doc().set({
+    name: navn
+})
+.then(() => {
+    console.log("Document successfully written!");
+})
+.catch((error) => {
+    console.error("Error writing document: ", error);
 });
+
 db.collection('names').onSnapshot(snapshot => {
     const docs = snapshot.docChanges()
     docs.forEach(doc => {
