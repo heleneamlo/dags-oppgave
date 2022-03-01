@@ -44,6 +44,7 @@ db.collection('names').onSnapshot(snapshot => {
             const docdata = doc.doc.data()
             const fornavn = docdata.name
             list.innerHTML += `<li>${fornavn}</li>`;
+            list.innerHTML += `<hr></hr>`;
         };
     });
 }); 

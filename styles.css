@@ -1,0 +1,18 @@
+.centeredBox{
+    background-color:rgb(179, 179, 179);
+    color:rgb(0, 0, 0);
+    height:300px;
+    margin-top:50px;
+    margin-bottom:50px;
+}
+.big-size{
+    font-size: 72px;
+}
+.medium-size{
+    font-size:64px;
+    list-style-type: none;
+    text-align:center;
+}
+li{
+    font-size: 38px;
+}
