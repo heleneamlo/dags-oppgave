@@ -1,5 +1,9 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "./node_modules/firebase/app";
+import { getFirestore } from "./node_modules/firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyB9CMCdQHYzTc2sOqlbxlrRdiXwnPGl1ak",
@@ -11,7 +15,8 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-//const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+const db = getFirestore();
 
 const form = document.querySelector('form');
 
