@@ -24,15 +24,10 @@ function addPerson(newPerson) {
     db.collection('names')
         .get()
         .then(snapshot => {
-            const docs = snapshot.docs
-            const docName = document.querySelector('#name').value
-            docs.forEach(doc => {
-                const navn = doc.data().name
-            });
-                db.collection('person_reg')
+                db.collection('names')
                 .add(newPerson)
                 .then(() => {
-                    alertPopup('Person Registrert!', true);
+                    alertPopup('Person Registrert!');
                 });
         });
 };
