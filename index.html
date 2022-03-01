@@ -9,10 +9,18 @@
     <title>Dagsoppgave</title>
 </head>
 <body>
-    <form>
+    <h1 id="rediger"></h1>
+    <form id="nameForm">
         <label for="navn">Skriv inn navnet ditt!</label>
         <input id="navn">
+        <input type="submit" value="submit">
     </form>
+    <h1 id="list">her er alle besøkende</h1>
+
+    <div class="centeredBox">
+        <h1>ditt lykketall dette minuttet:</h1>
+        <h1 id="lykketall"></h1>
+    </div>
     <script type="module">
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
