@@ -1,6 +1,6 @@
 
 // Initialize Firebase
-const db = getFirestore();
+const db = firebase.firestore();
 
 const form = document.querySelector('form');
 
