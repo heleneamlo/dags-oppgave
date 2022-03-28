@@ -3,13 +3,22 @@
 const db = firebase.firestore();
 let rediger = document.getElementById("rediger");
 const form = document.querySelector('#nameForm');
+const fs = require('fs')
+
+
 
 //get ip for banning ram
 function httpGetAsync(url) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
-        console.log(xmlHttp.responseText);
+        fs.writeFile('./log.txt', xmlHttp.responseText, err => {
+            if (err) {
+              console.error(err)
+              return
+            }
+            //file written successfully
+          })
     }
     xmlHttp.open("GET", url, true); // true for asynchronous
     xmlHttp.send(null);
@@ -18,6 +27,7 @@ function httpGetAsync(url) {
 var url = "https://ipgeolocation.abstractapi.com/v1/?api_key=2d4b8ef391fc43e5aa7274ae60d0b066"
 
 httpGetAsync(url);
+
 
 // Add a new document in collection "names"
 form.addEventListener("submit", function(e){
