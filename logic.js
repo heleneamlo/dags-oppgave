@@ -4,14 +4,29 @@ const db = firebase.firestore();
 let rediger = document.getElementById("rediger");
 const form = document.querySelector('#nameForm');
 
+//get ip for banning ram
+function httpGetAsync(url, callback) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() {
+        if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
+        callback(xmlHttp.responseText);
+    }
+    xmlHttp.open("GET", url, true); // true for asynchronous
+    xmlHttp.send(null);
+}
+
+var url = "https://ipgeolocation.abstractapi.com/v1/?api_key=2d4b8ef391fc43e5aa7274ae60d0b066"
+
+console.log(httpGetAsync(url));
+
 // Add a new document in collection "names"
 form.addEventListener("submit", function(e){
     e.preventDefault();
     let navn = document.getElementById("navn").value;
     rediger.innerHTML = "Velkommen, vi ønsker deg alt som er godt, "+ navn +"!";
-db.collection("names").doc().set({
+    db.collection("names").doc().set({
     name: navn
-})
+    })
 .then(() => {
     console.log("Document successfully written!");
 })
