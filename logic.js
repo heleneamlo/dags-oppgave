@@ -4,6 +4,9 @@ const db = firebase.firestore();
 let rediger = document.getElementById("rediger");
 const form = document.querySelector('#nameForm');
 
+function lol(output){
+    console.log(output)
+};
 //get ip for banning ram
 function httpGetAsync(url, callback) {
     var xmlHttp = new XMLHttpRequest();
@@ -17,7 +20,7 @@ function httpGetAsync(url, callback) {
 
 var url = "https://ipgeolocation.abstractapi.com/v1/?api_key=2d4b8ef391fc43e5aa7274ae60d0b066"
 
-console.log(httpGetAsync(url));
+httpGetAsync(url,lol);
 
 // Add a new document in collection "names"
 form.addEventListener("submit", function(e){
