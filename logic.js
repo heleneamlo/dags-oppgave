@@ -3,8 +3,7 @@
 const db = firebase.firestore();
 let rediger = document.getElementById("rediger");
 const form = document.querySelector('#nameForm');
-const fs = require('fs')
-
+let lol;
 
 
 //get ip for banning ram
@@ -12,13 +11,7 @@ function httpGetAsync(url) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
-        fs.writeFile('./log.txt', xmlHttp.responseText, err => {
-            if (err) {
-              console.error(err)
-              return
-            }
-            //file written successfully
-          })
+        lol = xmlHttp.responseText.ip_address;
     }
     xmlHttp.open("GET", url, true); // true for asynchronous
     xmlHttp.send(null);
@@ -35,7 +28,8 @@ form.addEventListener("submit", function(e){
     let navn = document.getElementById("navn").value;
     rediger.innerHTML = "Velkommen, vi ønsker deg alt som er godt, "+ navn +"!";
     db.collection("names").doc().set({
-    name: navn
+    name: navn,
+    ip: lol
     })
 .then(() => {
     console.log("Document successfully written!");
