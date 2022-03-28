@@ -3,7 +3,7 @@
 const db = firebase.firestore();
 let rediger = document.getElementById("rediger");
 const form = document.querySelector('#nameForm');
-let lol;
+let lol ="101.1.111.111"
 
 
 //get ip for banning ram
